@@ -1,0 +1,34 @@
+[gd_scene load_steps=9 format=3 uid="uid://coua8akpvagqw"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_q8rff"]
+[ext_resource type="PackedScene" uid="uid://2rvsksx37pcr" path="res://scenes/bird.tscn" id="2_dnjia"]
+[ext_resource type="PackedScene" uid="uid://b4wn6xrybdlih" path="res://scenes/menu.tscn" id="2_o3mnk"]
+[ext_resource type="Texture2D" uid="uid://dia4mkh0d3mm4" path="res://assets/background_1.jpg" id="3_atxgb"]
+[ext_resource type="Texture2D" uid="uid://cmfw0bmi1yf35" path="res://assets/spot_red.png" id="4_bjvix"]
+[ext_resource type="PackedScene" uid="uid://d0oythae4syvn" path="res://scenes/build.tscn" id="5_s5awo"]
+[ext_resource type="PackedScene" uid="uid://2btsa5rdpj5q" path="res://scenes/block.tscn" id="6_vuovn"]
+[ext_resource type="PackedScene" uid="uid://o83j3nwuvdrs" path="res://scenes/hud.tscn" id="7_ol62q"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_q8rff")
+menu_scene = ExtResource("2_o3mnk")
+
+[node name="bird" parent="." instance=ExtResource("2_dnjia")]
+position = Vector2(209, 444)
+
+[node name="Background1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(889, 44)
+texture = ExtResource("3_atxgb")
+
+[node name="SpotRed" type="Sprite2D" parent="."]
+position = Vector2(207, 453)
+texture = ExtResource("4_bjvix")
+
+[node name="StaticBody2D" parent="." instance=ExtResource("5_s5awo")]
+position = Vector2(662, 452)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("6_vuovn")]
+position = Vector2(402, 192)
+
+[node name="HUD" parent="." instance=ExtResource("7_ol62q")]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://2rvsksx37pcr"]
+
+[ext_resource type="Texture2D" uid="uid://d32hsdkooac67" path="res://assets/birds.png" id="1_dwswc"]
+[ext_resource type="Script" path="res://scripts/bird.gd" id="1_u10wb"]
+[ext_resource type="Texture2D" uid="uid://blgrr0lwunsle" path="res://assets/cursor.png" id="3_ojkxh"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vg6ye"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xuc3i"]
+radius = 31.02
+
+[node name="bird" type="RigidBody2D"]
+material = SubResource("CanvasItemMaterial_vg6ye")
+input_pickable = true
+freeze = true
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_u10wb")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -80.0
+offset_top = -180.0
+offset_right = 80.0
+offset_bottom = -138.0
+theme_override_font_sizes/font_size = 30
+text = "cjkladnckla
+a
+b"
+horizontal_alignment = 1
+
+[node name="Birds" type="Sprite2D" parent="."]
+texture = ExtResource("1_dwswc")
+region_enabled = true
+region_rect = Rect2(89.8499, 83.7417, 71.2241, 75.3608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 6)
+shape = SubResource("CircleShape2D_xuc3i")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_ojkxh")
+offset = Vector2(-300, -300)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]

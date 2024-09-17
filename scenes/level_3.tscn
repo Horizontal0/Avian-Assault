@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bisr0wffg5bsy"]
+
+[ext_resource type="PackedScene" uid="uid://coua8akpvagqw" path="res://scenes/main.tscn" id="1_fgoyw"]
+[ext_resource type="PackedScene" uid="uid://d0oythae4syvn" path="res://scenes/build.tscn" id="2_k1q13"]
+[ext_resource type="PackedScene" uid="uid://2btsa5rdpj5q" path="res://scenes/block.tscn" id="3_mfv5f"]
+
+[node name="main" instance=ExtResource("1_fgoyw")]
+
+[node name="StaticBody2D" parent="." index="3"]
+position = Vector2(916, 402)
+
+[node name="StaticBody2D7" parent="." index="4" instance=ExtResource("2_k1q13")]
+position = Vector2(983, 193)
+
+[node name="StaticBody2D2" parent="." index="5"]
+position = Vector2(453, 164)
+rotation = 0.513451
+scale = Vector2(0.5, 0.5)
+
+[node name="StaticBody2D5" parent="." index="6" instance=ExtResource("3_mfv5f")]
+position = Vector2(275, 58)
+rotation = 0.513451
+scale = Vector2(0.5, 0.5)
+
+[node name="StaticBody2D6" parent="." index="7" instance=ExtResource("3_mfv5f")]
+position = Vector2(175, -1.49012e-07)
+rotation = 0.513451
+scale = Vector2(0.5, 0.5)
+
+[node name="StaticBody2D3" parent="." index="8" instance=ExtResource("3_mfv5f")]
+position = Vector2(560, 226)
+rotation = 0.513451
+scale = Vector2(0.5, 0.5)
+
+[node name="StaticBody2D4" parent="." index="9" instance=ExtResource("3_mfv5f")]
+position = Vector2(667, 288)
+rotation = 0.513451
+scale = Vector2(0.5, 0.5)

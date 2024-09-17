@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://csp0w0h7s76dj"]
+
+[ext_resource type="Script" path="res://scripts/bird.gd" id="1_1j3mn"]
+[ext_resource type="Texture2D" uid="uid://d32hsdkooac67" path="res://assets/birds.png" id="2_dmwui"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u8slx"]
+radius = 31.0
+
+[node name="Birds2_0" type="RigidBody2D"]
+input_pickable = true
+freeze = true
+script = ExtResource("1_1j3mn")
+
+[node name="Birds" type="Sprite2D" parent="."]
+texture = ExtResource("2_dmwui")
+region_enabled = true
+region_rect = Rect2(88, 83, 75, 75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 6)
+shape = SubResource("CircleShape2D_u8slx")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

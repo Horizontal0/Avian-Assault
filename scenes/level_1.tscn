@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://iruqbft5ug41"]
+
+[ext_resource type="PackedScene" uid="uid://coua8akpvagqw" path="res://scenes/main.tscn" id="1_eqfux"]
+[ext_resource type="PackedScene" uid="uid://d0oythae4syvn" path="res://scenes/build.tscn" id="2_4w60g"]
+[ext_resource type="PackedScene" uid="uid://2btsa5rdpj5q" path="res://scenes/block.tscn" id="3_xt2so"]
+
+[node name="main" instance=ExtResource("1_eqfux")]
+
+[node name="StaticBody2D3" parent="." index="3" instance=ExtResource("2_4w60g")]
+position = Vector2(877, 234)
+
+[node name="StaticBody2D" parent="." index="4"]
+position = Vector2(534, 353)
+
+[node name="StaticBody2D2" parent="." index="5"]
+position = Vector2(352, 248)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+
+[node name="StaticBody2D4" parent="." index="6" instance=ExtResource("3_xt2so")]
+position = Vector2(1047, 125)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)

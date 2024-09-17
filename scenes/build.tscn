@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0oythae4syvn"]
+
+[ext_resource type="Script" path="res://scenes/build.gd" id="1_5tifb"]
+[ext_resource type="Texture2D" uid="uid://bcwr2l4iytvvd" path="res://assets/blocks.png" id="1_jwhrj"]
+[ext_resource type="AudioStream" uid="uid://dtc1pwflij8so" path="res://assets/impactWood_light_004.ogg" id="3_0evya"]
+
+[sub_resource type="Animation" id="Animation_edyvp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_qias4"]
+resource_name = "new_animation"
+length = 2.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 18.8496]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_juoxq"]
+_data = {
+"RESET": SubResource("Animation_edyvp"),
+"new_animation": SubResource("Animation_qias4")
+}
+
+[node name="buiild" type="StaticBody2D" groups=["blocks"]]
+script = ExtResource("1_5tifb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-106, -59, -73, -59, -69, -16, 76, -16, 77, -58, 110, -59, 114, 17, -107, 14)
+
+[node name="Blocks2" type="Sprite2D" parent="."]
+position = Vector2(-90.5, -20.5)
+rotation = 1.5708
+texture = ExtResource("1_jwhrj")
+region_enabled = true
+region_rect = Rect2(513.73, 231.45, 79.4649, 39.4054)
+
+[node name="Blocks3" type="Sprite2D" parent="."]
+position = Vector2(93.5, -20.5)
+rotation = 1.5708
+texture = ExtResource("1_jwhrj")
+region_enabled = true
+region_rect = Rect2(513.73, 231.45, 79.4649, 39.4054)
+
+[node name="Blocks" type="Sprite2D" parent="."]
+position = Vector2(0.750031, 1.50002)
+scale = Vector2(1.89241, 1)
+texture = ExtResource("1_jwhrj")
+region_enabled = true
+region_rect = Rect2(513.73, 231.45, 79.4649, 39.4054)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_juoxq")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0evya")
+volume_db = 10.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
